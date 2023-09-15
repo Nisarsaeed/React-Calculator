@@ -1,11 +1,12 @@
 import './App.css';
 import Key from './components/Key';
+import Display from './components/Display';
 function App() {
   return (
     <div className="App">
       <div className="calculator">
         <div className="screen">
-          0
+          <Display displayValue = "0" />
         </div>
         <div className='cal-body'>
         <div className='row'>
