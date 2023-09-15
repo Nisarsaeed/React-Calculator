@@ -1,2 +1,2 @@
 # React-Calculator
-### React JS 
+### React JS
