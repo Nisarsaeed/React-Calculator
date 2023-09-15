@@ -1,6 +1,6 @@
 export default function Display (props){
     return (
-        <div className="value">
+        <div className="screen">
           {props.displayValue}
         </div>
     )

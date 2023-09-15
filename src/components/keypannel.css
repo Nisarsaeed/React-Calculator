@@ -1,0 +1,21 @@
+.rowContainer{
+    height: 75%; 
+    background: transparent;
+}
+.row {
+    height: 16.666%;
+    display: flex;
+}
+.key {
+    flex: 1;
+    margin: 1px;
+    border: none;
+    font-size: 20px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.key:hover {
+    background-color: #444;
+}
