@@ -1,7 +1,9 @@
 
 function Key(props){
-    return(
-        <button className="key">{props.numberPress}</button>
-    )
+ return (   
+  <button className="key" onClick={props.onClick}>
+    {props.value}
+  </button>
+);
 };
 export default Key;
