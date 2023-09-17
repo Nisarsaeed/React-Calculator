@@ -1,13 +1,10 @@
-.rowContainer{
+.key-panel{
     height: 75%; 
     background: transparent;
-}
-.row {
-    height: 16.666%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 .key {
-    flex: 1;
     margin: 1px;
     border: none;
     font-size: 20px;
