@@ -5,7 +5,7 @@ export default function KeysPannel(props){
     return(
       <div className="key-panel">
       {keyValues.map((value, index) => (
-        <Key key={index} value={value} onClick = {props.onKeyClick}  />
+        <Key key={index} value={value} onclick = {props.onKeyClick}  />
       ))}
     </div>  
     );

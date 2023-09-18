@@ -1,7 +1,7 @@
 
 function Key(props){
  return (   
-  <button className="key" onClick={props.onClick}>
+  <button className="key" onClick={props.onclick}>
     {props.value}
   </button>
 );

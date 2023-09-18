@@ -1,14 +1,17 @@
-import { useState, useRef, useEffect } from 'react';
+// import { useState, useRef, useEffect } from 'react';
 import './App.css';
 import KeysPannel from './components/KeysPannel';
 import Display from './components/Display';
 function App() {
-  const [result, setResult] = useState(0);
+  
+  function operatorClicked(){
+    alert('nidsfs');
+  };
   return (
     <div className="App">
       <div className="calculator">
           <Display displayValue = "0" />
-          <KeysPannel onKeyClick={()=>operatorClicked}/>
+          <KeysPannel onKeyClick={operatorClicked}/>
       </div>
     </div>
   );
