@@ -3,17 +3,17 @@ import './App.css';
 import KeysPannel from './components/KeysPannel';
 import Display from './components/Display';
 function App() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState(0);
   const [firstValue, setFirstValue] = useState(0);
-  const [operator, setOperator] = useState('');
+  const [selectedOperator, setSelectedOperator] = useState('');
   function handleClick(event) {
-    const value = event.target.textContent;
-    switch (value) {
+    const clickedValue = event.target.textContent;
+    switch (clickedValue) {
       case '+':
       case '-':
       case '/':
       case 'x':
-        operatorClicked(value);
+        operatorClicked(clickedValue);
         break;
       case '=':
         calculate();
@@ -22,42 +22,43 @@ function App() {
         resetValues();
         break;
       default:
-        if (/^[0-9]+$/.test(value)) {
-          numKeyClicked(value);
+        if (/^[0-9]+$/.test(clickedValue)) {
+          numKeyClicked(clickedValue);
         }
     }
   }
   function numKeyClicked(number) {
-    setResult((prevResult) => prevResult += number);
+    console.log(number);
+    setResult((currentValue) => currentValue += number);
   }
-  function operatorClicked(oper) {
+  function operatorClicked(operator) {
     setFirstValue((value) => value = parseFloat(result));
-    setOperator((operator) => operator = oper);
     setResult((preValue) => preValue = '');
+    setSelectedOperator((currentOperator) => currentOperator = operator);
   }
   function calculate() {
     setResult((value) => parseFloat(value));
-    switch (operator) {
+    switch (selectedOperator) {
       case '+':
-        setResult((preValue) => preValue + firstValue);
+        setResult((preValue) => firstValue + preValue);
         break;
       case '-':
-        setResult((preValue) => preValue - firstValue);
+        setResult((preValue) => firstValue - preValue);
         break;
       case 'x':
-        setResult((preValue) => preValue * firstValue);
+        setResult((preValue) => firstValue * preValue);
         break;
       case '/':
-        setResult((preValue) => preValue / firstValue);
+        setResult((preValue) => firstValue / preValue);
         break;
       default:
         console.log('No operator selected');
     }
   }
   function resetValues() {
-    setFirstValue((value) => value = 0);
+    setFirstValue((currentValue) => currentValue = 0);
     setResult((value) => value = '');
-    setOperator((oper) => oper = '');
+    setSelectedOperator((operator) => operator = '');
   }
   return (
     <div className="App">
