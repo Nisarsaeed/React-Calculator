@@ -1,18 +1,26 @@
 import { useState } from "react";
+
 export function useCalculator() {
     const [result, setResult] = useState('');
     const [firstValue, setFirstValue] = useState(0);
     const [selectedOperator, setSelectedOperator] = useState('');
+    let resultToFloat = 0;
+    function convertResultTOFloat(){
+         resultToFloat = parseFloat(result);
+    };
+
     function numKeyClicked(number) {
-        setResult((currentValue) => currentValue += number);
+        setResult((value)=> value += number);
     };
     function operatorClicked(operator) {
-        setFirstValue((value) => value = parseFloat(result));
-        setResult((preValue) => preValue = '');
-        setSelectedOperator((currentOperator) => currentOperator = operator);
+        convertResultTOFloat();
+        setFirstValue(resultToFloat);
+        setResult('');
+        setSelectedOperator(operator);
     };
     function calculate() {
-        setResult((value) => parseFloat(value));
+        convertResultTOFloat();
+        setResult(resultToFloat);
         switch (selectedOperator) {
             case '+':
                 setResult((preValue) => firstValue + preValue);
@@ -31,9 +39,9 @@ export function useCalculator() {
         };
     };
     function resetValues() {
-        setFirstValue((currentValue) => currentValue = 0);
-        setResult((value) => value = '');
-        setSelectedOperator((operator) => operator = '');
+        setFirstValue(0);
+        setResult('');
+        setSelectedOperator('');
     };
     return {
         result,
