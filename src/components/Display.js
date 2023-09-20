@@ -1,7 +1,7 @@
-export default function Display (props){
+export default function Display ({displayValue}){
     return (
         <div className="screen">
-            {props.displayValue}
+            {displayValue}
         </div>
     )
 }
