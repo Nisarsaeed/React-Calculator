@@ -5,10 +5,10 @@ export function useCalculator() {
     const [firstValue, setFirstValue] = useState(0);
     const [selectedOperator, setSelectedOperator] = useState('');
     let resultToFloat = 0;
+
     function convertResultTOFloat(){
          resultToFloat = parseFloat(result);
     };
-
     function numKeyClicked(number) {
         setResult((value)=> value += number);
     };

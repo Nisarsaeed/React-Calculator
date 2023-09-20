@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import KeysPannel from './components/KeysPannel';
 import Display from './components/Display';
-import { useCalculator } from './calculatorLogic'
+import { useCalculator } from './Hooks/useCalculator';
+
 function App() {
   const {
     result,
