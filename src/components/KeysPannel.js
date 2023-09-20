@@ -7,13 +7,13 @@ export default function KeysPannel({ onKeyClick }) {
   return (
     <div className="key-panel">
       {numericKeys.map((value) => (
-        <Key value={value} onclick={onKeyClick} />
+        <Key  value={value} onclick={onKeyClick} />
       ))}
       {specialKeys.map((value) => (
-        <Key value={value} onclick={onKeyClick} />
+        <Key  value={value} onclick={onKeyClick} />
       ))}
       {operatorKeys.map((value) => (
-        <Key value={value} onclick={onKeyClick} />
+        <Key  value={value} onclick={onKeyClick} />
       ))}
     </div>
   );
