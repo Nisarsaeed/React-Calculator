@@ -6,14 +6,14 @@ export default function KeysPannel({ onKeyClick }) {
   const specialKeys = ['AC', '='];
   return (
     <div className="key-panel">
-      {numericKeys.map((value, index) => (
-        <Key key={index} value={value} onclick={onKeyClick} />
+      {numericKeys.map((value) => (
+        <Key value={value} onclick={onKeyClick} />
       ))}
-      {specialKeys.map((value, index) => (
-        <Key key={index} value={value} onclick={onKeyClick} />
+      {specialKeys.map((value) => (
+        <Key value={value} onclick={onKeyClick} />
       ))}
-      {operatorKeys.map((value, index) => (
-        <Key key={index} value={value} onclick={onKeyClick} />
+      {operatorKeys.map((value) => (
+        <Key value={value} onclick={onKeyClick} />
       ))}
     </div>
   );
