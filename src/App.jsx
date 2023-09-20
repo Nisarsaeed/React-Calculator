@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import KeysPannel from './components/KeysPannel';
 import Display from './components/Display';
