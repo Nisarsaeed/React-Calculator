@@ -12,8 +12,7 @@ function App() {
     operatorClicked,
     resetValues
   } = useCalculator();
-  function handleClick(event) {
-    const clickedValue = event.target.textContent;
+  function handleClick({ target: { textContent: clickedValue } }) {
     switch (clickedValue) {
       case '+':
       case '-':
