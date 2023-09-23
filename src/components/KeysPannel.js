@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import Key from "./Key";
 import "./keypannel.css"
 export default function KeysPannel({ onKeyClick }) {
@@ -5,15 +6,15 @@ export default function KeysPannel({ onKeyClick }) {
   const operatorKeys = ['+', '-', 'x', '/'];
   const specialKeys = ['AC', '='];
   return (
-    <div className="key-panel">
+    <div  className="key-panel">
       {numericKeys.map((value) => (
-        <Key  value={value} onclick={onKeyClick} />
+        <Key key={uuidv4()} value={value} onclick={onKeyClick} />
       ))}
       {specialKeys.map((value) => (
-        <Key  value={value} onclick={onKeyClick} />
+        <Key key={uuidv4()} value={value} onclick={onKeyClick} />
       ))}
       {operatorKeys.map((value) => (
-        <Key  value={value} onclick={onKeyClick} />
+        <Key key={uuidv4()} value={value} onclick={onKeyClick} />
       ))}
     </div>
   );
