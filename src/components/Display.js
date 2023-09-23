@@ -1,7 +1,8 @@
-export default function Display ({displayValue}){
+export default function Display ({displayValue, preValue}){
     return (
         <div className="screen">
-            {displayValue}
+            <div className="preValue">{preValue}</div>
+            <div className="currentValue"> {displayValue} </div>
         </div>
     )
 }
