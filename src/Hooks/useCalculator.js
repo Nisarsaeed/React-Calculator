@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export function useCalculator() {
-    const [display, setDisplay] = useState({result:'',firstValue:0});
-    let {result, firstValue} = display;
+    const [display, setDisplay] = useState({result:'',previousVal:0});
+    let {result, previousVal} = display;
     const [selectedOperator, setSelectedOperator] = useState('');
     let calculation = 0;
 
@@ -14,38 +14,39 @@ export function useCalculator() {
     };
     function operatorClicked(operator) {
         const resultToFloat = convertResultTOFloat();
-        setDisplay({firstValue: resultToFloat, result:''});
+        setDisplay({previousVal: resultToFloat, result:''});
         setSelectedOperator(operator);
     };
     function calculate() {
         const resultToFloat = convertResultTOFloat();
         switch (selectedOperator) {
             case '+':
-                calculation = firstValue + resultToFloat;
+                calculation = previousVal + resultToFloat;
                 break;
             case '-':
-                calculation = firstValue - resultToFloat;
+                calculation = previousVal - resultToFloat;
                 break;
             case 'x':
-                calculation = firstValue * resultToFloat;
+                calculation = previousVal * resultToFloat;
                 break;
             case '/':
-                calculation = firstValue / resultToFloat;
+                calculation = previousVal / resultToFloat;
                 break;
             default:
                 console.log('No operator selected');
         };
         setDisplay((prevDisplay) => ({
             ...prevDisplay,
-            firstValue: resultToFloat,
+            previousVal: resultToFloat,
             result: calculation
         }));
     };
     function resetValues() {
-        setDisplay({firstValue:0, result:''});
+        setDisplay({previousVal:0, result:''});
         setSelectedOperator('');
     };
     return {
+        previousVal,
         result,
         calculate,
         numKeyClicked,

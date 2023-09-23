@@ -1,6 +1,6 @@
 function Key({value, onclick}) {
   return (
-    <button className="key" onClick={onclick}>
+    <button className="key" onClick={onclick} type="button">
       {value}
     </button>
   );

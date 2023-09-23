@@ -6,6 +6,7 @@ import { useCalculator } from './Hooks/useCalculator';
 
 function App() {
   const {
+    previousVal,
     result,
     calculate,
     numKeyClicked,
@@ -35,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <div className="calculator">
-        <Display displayValue={result} />
+        <Display displayValue={result} preValue = {previousVal} />
         <KeysPannel onKeyClick={handleClick} />
       </div>
     </div>
