@@ -1,46 +1,48 @@
 import { useState } from "react";
 
 export function useCalculator() {
-    const [result, setResult] = useState('');
-    const [firstValue, setFirstValue] = useState(0);
+    const [display, setDisplay] = useState({result:'',firstValue:0});
+    let {result, firstValue} = display;
     const [selectedOperator, setSelectedOperator] = useState('');
-    let resultToFloat = 0;
+    let calculation = 0;
 
     function convertResultTOFloat(){
-         resultToFloat = parseFloat(result);
+         return parseFloat(result);
     };
     function numKeyClicked(number) {
-        setResult((value)=> value += number);
+        setDisplay({...display,result: result+=number});
     };
     function operatorClicked(operator) {
-        convertResultTOFloat();
-        setFirstValue(resultToFloat);
-        setResult('');
+        const resultToFloat = convertResultTOFloat();
+        setDisplay({firstValue: resultToFloat, result:''});
         setSelectedOperator(operator);
     };
     function calculate() {
-        convertResultTOFloat();
-        setResult(resultToFloat);
+        const resultToFloat = convertResultTOFloat();
         switch (selectedOperator) {
             case '+':
-                setResult((preValue) => firstValue + preValue);
+                calculation = firstValue + resultToFloat;
                 break;
             case '-':
-                setResult((preValue) => firstValue - preValue);
+                calculation = firstValue - resultToFloat;
                 break;
             case 'x':
-                setResult((preValue) => firstValue * preValue);
+                calculation = firstValue * resultToFloat;
                 break;
             case '/':
-                setResult((preValue) => firstValue / preValue);
+                calculation = firstValue / resultToFloat;
                 break;
             default:
                 console.log('No operator selected');
         };
+        setDisplay((prevDisplay) => ({
+            ...prevDisplay,
+            firstValue: resultToFloat,
+            result: calculation
+        }));
     };
     function resetValues() {
-        setFirstValue(0);
-        setResult('');
+        setDisplay({firstValue:0, result:''});
         setSelectedOperator('');
     };
     return {
