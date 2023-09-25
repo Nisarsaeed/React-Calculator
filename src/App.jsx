@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
-import KeysPannel from './components/KeysPannel';
-import Display from './components/Display';
 import { useCalculator } from './Hooks/useCalculator';
+import { Display } from './components/Display';
+import { KeysPannel } from './components/Keys/KeysPannel';
+import './App.css';
 
-function App() {
+export function App() {
   const {
     previousVal,
     result,
@@ -13,6 +13,7 @@ function App() {
     operatorClicked,
     resetValues
   } = useCalculator();
+
   function handleClick({ target: { textContent: clickedValue } }) {
     switch (clickedValue) {
       case '+':
@@ -33,6 +34,7 @@ function App() {
         }
     };
   };
+
   return (
     <div className="App">
       <div className="calculator">
@@ -42,5 +44,3 @@ function App() {
     </div>
   );
 };
-
-export default App;

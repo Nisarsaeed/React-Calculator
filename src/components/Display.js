@@ -1,4 +1,5 @@
-export default function Display ({displayValue, preValue}){
+export const Display = ({displayValue, preValue})=>{
+    
     return (
         <div className="screen">
             <div className="preValue">{preValue}</div>

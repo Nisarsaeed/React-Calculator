@@ -2,12 +2,11 @@ import { useState } from "react";
 
 export function useCalculator() {
     const [display, setDisplay] = useState({result:'',previousVal:0});
-    let {result, previousVal} = display;
     const [selectedOperator, setSelectedOperator] = useState('');
-    let calculation = 0;
-
+    let {result, previousVal} = display;
+    
     function convertResultTOFloat(){
-         return parseFloat(result);
+        return parseFloat(result);
     };
     function numKeyClicked(number) {
         setDisplay({...display,result: result+=number});
@@ -17,8 +16,12 @@ export function useCalculator() {
         setDisplay({previousVal: resultToFloat, result:''});
         setSelectedOperator(operator);
     };
+
+    let calculation = 0;
+
     function calculate() {
         const resultToFloat = convertResultTOFloat();
+        
         switch (selectedOperator) {
             case '+':
                 calculation = previousVal + resultToFloat;
@@ -35,6 +38,7 @@ export function useCalculator() {
             default:
                 console.log('No operator selected');
         };
+
         setDisplay((prevDisplay) => ({
             ...prevDisplay,
             previousVal: resultToFloat,
@@ -45,6 +49,7 @@ export function useCalculator() {
         setDisplay({previousVal:0, result:''});
         setSelectedOperator('');
     };
+
     return {
         previousVal,
         result,
