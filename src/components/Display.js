@@ -4,6 +4,8 @@ export const Display = ({displayValue, preValue})=>{
         <div className="screen">
             <div className="preValue">{preValue}</div>
             <div className="currentValue"> {displayValue} </div>
+            <div className="preValue">{preValue}</div>
+            <div className="currentValue"> {displayValue} </div>
         </div>
     )
 }

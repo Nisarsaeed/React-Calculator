@@ -14,6 +14,7 @@ export function useCalculator() {
     function operatorClicked(operator) {
         const resultToFloat = convertResultTOFloat();
         setDisplay({previousVal: resultToFloat, result:''});
+        setDisplay({previousVal: resultToFloat, result:''});
         setSelectedOperator(operator);
     };
 
@@ -25,14 +26,18 @@ export function useCalculator() {
         switch (selectedOperator) {
             case '+':
                 calculation = previousVal + resultToFloat;
+                calculation = previousVal + resultToFloat;
                 break;
             case '-':
+                calculation = previousVal - resultToFloat;
                 calculation = previousVal - resultToFloat;
                 break;
             case 'x':
                 calculation = previousVal * resultToFloat;
+                calculation = previousVal * resultToFloat;
                 break;
             case '/':
+                calculation = previousVal / resultToFloat;
                 calculation = previousVal / resultToFloat;
                 break;
             default:
@@ -42,15 +47,18 @@ export function useCalculator() {
         setDisplay((prevDisplay) => ({
             ...prevDisplay,
             previousVal: resultToFloat,
+            previousVal: resultToFloat,
             result: calculation
         }));
     };
     function resetValues() {
         setDisplay({previousVal:0, result:''});
+        setDisplay({previousVal:0, result:''});
         setSelectedOperator('');
     };
 
     return {
+        previousVal,
         previousVal,
         result,
         calculate,
