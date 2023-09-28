@@ -1,0 +1,18 @@
+.key-panel{
+    height: 75%; 
+    background: transparent;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.key {
+    margin: 1px;
+    border: none;
+    font-size: 20px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.key:hover {
+    background-color: #444;
+}

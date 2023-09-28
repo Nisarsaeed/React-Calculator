@@ -1,2 +1,2 @@
 # React-Calculator
-### Practise Project  of React.JS
+### React JS
